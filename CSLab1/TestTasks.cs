@@ -207,12 +207,12 @@ class TestTasks
     // Тест задания 3.10
     public void test_3_10()
     {
-        Console.WriteLine("Тест задания 3.8");
+        Console.WriteLine("Тест задания 3.10");
         for (int i = 0; i < 3; i++)
         {
             tasks.guessGame();
         }
-        Console.WriteLine("Тест задания 3.8 завершен");
+        Console.WriteLine("Тест задания 3.10 завершен");
         Console.WriteLine();
     }
 
@@ -223,11 +223,12 @@ class TestTasks
         for (int i = 0; i < 3; i++)
         {
             int[] arr = input.randomArrInput();
-            Console.WriteLine("Массив: ");
+            Console.Write("Массив: ");
             for (int j = 0; j < arr.Length; j++)
             {
                 Console.Write($"{arr[j]} ");
             }
+            Console.WriteLine();
             int n = input.intInput(false, "Введите элемент, который необходимо найти: ");
             Console.WriteLine($"Результат: {tasks.findLast(arr, n)}");
 

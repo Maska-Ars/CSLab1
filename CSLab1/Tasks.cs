@@ -67,7 +67,7 @@ class Tasks
     //задача 2.6
     public bool sum3(int x, int y, int z)
     {
-        if (x + y == z && x + z == y && y + z == x) { return true; }
+        if (x + y == z || x + z == y || y + z == x) { return true; }
         return false;
     }
 
@@ -126,7 +126,7 @@ class Tasks
             case "воскресенье":
                 Console.WriteLine("воскресенье");
                 break;
-            case null:
+            default:
                 Console.WriteLine($"{x} - не день недели!");
                 break;
         }
@@ -136,7 +136,7 @@ class Tasks
     public String reverseListNums(int x)
     {
         string s = "";
-        for (; x >= 0; x++)
+        for (; x >= 0; x--)
         {
             s += $"{x} ";
         }
@@ -171,7 +171,7 @@ class Tasks
     {
         for (int i = 0; i < x; i++)
         {
-            for (int j = i; j > 0; j--)
+            for (int j =i+1; j > 0; j--)
             {
                 Console.Write("*");
             }
@@ -212,7 +212,7 @@ class Tasks
     //задача 4.2
     public int findLast(int[] arr, int x)
     {
-        for (int i = arr.Length; i >= 0; i--)
+        for (int i = arr.Length-1; i >= 0; i--)
         {
             if (arr[i] == x) { return i; }
         }
@@ -223,14 +223,20 @@ class Tasks
     public int[] add(int[] arr, int x, int pos)
     {
         int[] m = new int[arr.Length + 1];
-        for (int i = 0; i < arr.Length; i++)
+
+        if (pos > arr.Length - 1) { pos = arr.Length - 1; }
+
+        for (int i = 0; i < pos; i++)
         {
-            if (i == pos)
-            {
-                m[i] = x;
-                i++;
-            }
             m[i] = arr[i];
+        }
+
+        m[pos] = x;
+
+        
+        for (int i = pos; i < arr.Length; i++)
+        {
+            m[i + 1] = arr[i];
         }
         return m;
     }
@@ -238,11 +244,11 @@ class Tasks
     //задача 4.6
     public void reverse(int[] arr)
     {
-        for (int i = arr.Length / 2; i >= 0; i--)
+        for (int i = 0; i < arr.Length / 2; i++)
         {
             int temp = arr[i];
-            arr[i] = arr[arr.Length - i];
-            arr[arr.Length - i] = temp;
+            arr[i] = arr[arr.Length - i - 1];
+            arr[arr.Length - i - 1] = temp;
         }
     }
 

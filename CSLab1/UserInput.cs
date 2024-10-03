@@ -22,7 +22,7 @@ class UserInput
                     Console.WriteLine("Число должно быть положительным!");
                 }
             }
-            else { Console.WriteLine("Введенное значение не является целым числом!"); }
+            else if (!b) { Console.WriteLine("Введенное значение не является целым числом!"); }
         }
         return int.Parse(user_input);
     }
@@ -30,11 +30,11 @@ class UserInput
     // Для ввода 1 символа
     public char charInput()
     {
-        Console.WriteLine("Введите символ: ");
+        Console.Write("Введите символ: ");
         string user_input = Console.ReadLine();
         while (user_input.Length > 1 || user_input.Length == 0)
         {
-            Console.WriteLine("Введите 1 символ!");
+            Console.Write("Введите 1 символ!: ");
             user_input = Console.ReadLine();
         }
         return user_input[0];
